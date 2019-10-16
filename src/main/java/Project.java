@@ -1,3 +1,6 @@
+
+import org.jgrapht.graph.DefaultEdge;
+
 import javax.swing.*;
 import java.io.File;
 import java.util.Arrays;
@@ -6,7 +9,7 @@ import java.util.List;
 import java.util.Queue;
 
 public class Project {
-    private List<File> files = new LinkedList<File>();
+    private List<File> files = new LinkedList<>();
 
     public List<File> getFiles() {
         return files;
@@ -39,7 +42,7 @@ public class Project {
     }
 
     public List<String> getFileNames(){
-        List<String> names = new LinkedList<String>();
+        List<String> names = new LinkedList<>();
         for (File file : files){
             names.add(file.getName());
         }
