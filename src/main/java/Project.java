@@ -95,8 +95,8 @@ public class Project {
         }
     }
 
-public Date findDependencies() throws IOException {
-        Date date;
+public Data findDependencies() throws IOException {
+        Data data;
         List<String> list1=new LinkedList<>();
         List<String> list2= new LinkedList<>();
         List<Integer>list3=new LinkedList<>();
@@ -136,7 +136,7 @@ public Date findDependencies() throws IOException {
                 list3.add(i);
             }
         }
-        date=new Date(list1,list2,list3);
-        return date;
+        data=new Data(list1,list2,list3);
+        return data;
     }
 }
