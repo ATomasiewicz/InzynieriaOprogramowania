@@ -95,25 +95,31 @@ public class Project {
         }
     }
 
-    public void findDependencies() throws IOException {
+    public List<String> findDependencies() throws IOException {
+        List<String> dependencies = new LinkedList<>();
         for (String name : getFileNames()){
             String []tmp = name.split("\\.");
-            for (File file : files){
-                int i=0;
-                if (file.getName().equals(name)) {
-                    continue;
-                }
-                BufferedReader reader = new BufferedReader(new FileReader(file));
-                String line;
-                while((line=reader.readLine()) != null){
-                    if (line.contains(tmp[0])){
-                        i++;
-                    }
-                }
-                //zamiast wyswietlania tutaj metoda ma zwracac moc powiazania miedzy plikami zeby bylo do grafu
-                //albo zrobic szukanie zaleznosci w inny sposob
-                System.out.println(name + " in " + file.getName() + ": " + i);
+            if(!tmp[1].equals("java")) {
+                continue;
             }
+                for (File file : files) {
+                    int i = 0;
+                    if(file.getName().equals(name)|| !file.getName().contains(".java")) {
+                        continue;
+                    }
+                    BufferedReader reader = new BufferedReader(new FileReader(file));
+                    String line;
+                    while ((line = reader.readLine()) != null) {
+                        if (line.contains(tmp[0])) {
+                            i++;
+                        }
+                    }
+                    //zamiast wyswietlania tutaj metoda ma zwracac moc powiazania miedzy plikami zeby bylo do grafu
+                    //albo zrobic szukanie zaleznosci w inny sposob
+                    dependencies.add(name + "" + file.getName() + "|" + i);
+                    System.out.println(name + " in " + file.getName() + ": " + i);
+                }
+            }
+        return dependencies;
         }
-    }
 }
