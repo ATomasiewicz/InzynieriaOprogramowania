@@ -1,8 +1,8 @@
 import javax.swing.*;
 import java.io.File;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+
 
 public class Project {
     private List<File> files = new LinkedList<File>();
@@ -19,12 +19,20 @@ public class Project {
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JFileChooser fileChooser = new JFileChooser();
-        //frame.setSize(new Dimension(400, 400));
         fileChooser.setMultiSelectionEnabled(true);
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
         fileChooser.showOpenDialog(frame);
         if(fileChooser.getSelectedFiles() != null) {
-            files = Arrays.asList(fileChooser.getSelectedFiles());
+            for (File file : fileChooser.getSelectedFiles()){
+                if (file.isDirectory()){
+                    loadFilesFromDirectory(file);
+                }
+                else{
+                    files.add(file);
+                }
+            }
         }
+
         frame.dispose();
     }
 
@@ -34,5 +42,16 @@ public class Project {
             names.add(file.getName());
         }
         return names;
+    }
+
+    private void loadFilesFromDirectory(File directory){
+        for (File file : directory.listFiles()){
+            if(file.isDirectory()){
+                loadFilesFromDirectory(file);
+            }
+            else{
+                files.add(file);
+            }
+        }
     }
 }
