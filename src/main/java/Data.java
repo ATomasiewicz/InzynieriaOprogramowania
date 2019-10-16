@@ -1,12 +1,12 @@
 import java.util.LinkedList;
 import java.util.List;
 
-public class Date {
+public class Data {
     List<String> list1=new LinkedList<>();
     List<String> list2= new LinkedList<>();
     List<Integer>list3=new LinkedList<>();
 
-    public Date(List<String> list1, List<String> list2, List<Integer> list3) {
+    public Data(List<String> list1, List<String> list2, List<Integer> list3) {
         this.list1 = list1;
         this.list2 = list2;
         this.list3 = list3;
