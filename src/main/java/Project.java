@@ -95,8 +95,12 @@ public class Project {
         }
     }
 
-public List<String> findDependencies() throws IOException {
-        List<String> dependencies = new LinkedList<>();
+public Date findDependencies() throws IOException {
+        Date date;
+        List<String> list1=new LinkedList<>();
+        List<String> list2= new LinkedList<>();
+        List<Integer>list3=new LinkedList<>();
+
         for (String name : getFileNames()){
             String []tmp = name.split("\\.");
             if(!tmp[1].equals("java"))
@@ -127,12 +131,12 @@ public List<String> findDependencies() throws IOException {
                         }
                     }
                 }
-                //zamiast wyswietlania tutaj metoda ma zwracac moc powiazania miedzy plikami zeby bylo do grafu
-                //albo zrobic szukanie zaleznosci w inny sposob
-                dependencies.add(name + "" + file.getName() + "|" + i);
-                System.out.println(name + " in " + file.getName() + ": " + i);
+                list1.add(name);
+                list2.add(file.getName());
+                list3.add(i);
             }
         }
-    return dependencies;
+        date=new Date(list1,list2,list3);
+        return date;
     }
 }
