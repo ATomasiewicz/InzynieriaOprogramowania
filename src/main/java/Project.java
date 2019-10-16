@@ -22,10 +22,19 @@ public class Project {
         JFileChooser fileChooser = new JFileChooser();
         //frame.setSize(new Dimension(400, 400));
         fileChooser.setMultiSelectionEnabled(true);
+        fileChooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
         fileChooser.showOpenDialog(frame);
         if(fileChooser.getSelectedFiles() != null) {
-            files = Arrays.asList(fileChooser.getSelectedFiles());
+            for (File file : fileChooser.getSelectedFiles()){
+                if (file.isDirectory()){
+                    loadFilesFromDirectory(file);
+                }
+                else{
+                    files.add(file);
+                }
+            }
         }
+
         frame.dispose();
     }
 
@@ -74,4 +83,16 @@ public class Project {
             }
         }
     }
+
+    private void loadFilesFromDirectory(File directory){
+        for (File file : directory.listFiles()){
+            if(file.isDirectory()){
+                loadFilesFromDirectory(file);
+            }
+            else{
+                files.add(file);
+            }
+        }
+    }
+
 }
