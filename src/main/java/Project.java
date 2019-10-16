@@ -3,6 +3,7 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class Project {
     private List<File> files = new LinkedList<File>();
@@ -15,7 +16,7 @@ public class Project {
         this.files = files;
     }
 
-    public void loadFiles(){
+    void loadFiles(){
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JFileChooser fileChooser = new JFileChooser();
@@ -34,5 +35,43 @@ public class Project {
             names.add(file.getName());
         }
         return names;
+    }
+
+
+    public static void listFilesRecursive(String rootDir)
+    {
+        Queue<File> queue = new LinkedList<>();
+
+        // add root directory to the queue
+        queue.add(new File(rootDir));
+
+        // loop until queue is empty - all files and directories present
+        // inside the root directory are processed
+        while (!queue.isEmpty())
+        {
+            // get next file/directory from the queue
+            File current = queue.poll();
+
+            // get list of all files and directories in 'current'
+            File[] listOfFilesAndDirectory = current.listFiles();
+
+            // listFiles() returns non-null array if 'current' denotes a dir
+            if (listOfFilesAndDirectory != null)
+            {
+                // iterate over the names of the files and directories in
+                // the current directory
+                for (File file : listOfFilesAndDirectory)
+                {
+                    // if file denotes a directory
+                    if (file.isDirectory()) {
+                        queue.add(file);
+                    }
+                    // if file denotes a file, print it
+                    else {
+                        System.out.println(file);
+                    }
+                }
+            }
+        }
     }
 }
