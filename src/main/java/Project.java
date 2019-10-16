@@ -95,33 +95,34 @@ public class Project {
         }
     }
 
- public List<String> findDependencies() throws IOException {
+public List<String> findDependencies() throws IOException {
         List<String> dependencies = new LinkedList<>();
-        for (String name : getFileNames()) {
-            String[] tmp = name.split("\\.");
-            if (!tmp[1].equals("java"))
+        for (String name : getFileNames()){
+            String []tmp = name.split("\\.");
+            if(!tmp[1].equals("java"))
                 continue;
-            for (File file : files) {
-                int i = 0;
-                if (file.getName().equals(name) || !file.getName().contains(".java")) {
+            for (File file : files){
+                int i=0;
+                if (file.getName().equals(name)|| !file.getName().contains(".java")) {
                     continue;
                 }
                 BufferedReader reader = new BufferedReader(new FileReader(file));
                 String line;
                 List<String> objects = new LinkedList<>();
-                while ((line = reader.readLine()) != null) {
-                    String words[] = line.split(" ");
-                    String word = "";
-                    for (int j = 0; j < words.length; j++) {
+                while((line=reader.readLine()) != null){
+                    String words[]=line.split(" ");
+                    String word= "";
+                    for(int j=0;j<words.length;j++) {
                         if (words[j].equals(tmp[0])) {
                             i++;
-                            objects.add(words[j + 1]);
+                            objects.add(words[j+1]);
                         }
-                        if (words[j].contains(".")) {
+                        if(words[j].contains(".")) {
                             String[] tab = words[j].split("\\.");
-                            word = tab[0];
+                            word=tab[0];
                         }
-                        if (!objects.isEmpty() && objects.contains(word)) {
+                        if (!objects.isEmpty() && objects.contains(word))
+                        {
                             i++;
                         }
                     }
@@ -132,6 +133,6 @@ public class Project {
                 System.out.println(name + " in " + file.getName() + ": " + i);
             }
         }
-        return dependencies;
+    return dependencies;
     }
 }
