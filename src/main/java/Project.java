@@ -112,25 +112,12 @@ public Data findDependencies() throws IOException {
                 }
                 BufferedReader reader = new BufferedReader(new FileReader(file));
                 String line;
-                List<String> objects = new LinkedList<>();
+                
                 while((line=reader.readLine()) != null){
-                    String words[]=line.split(" ");
-                    String word= "";
-                    for(int j=0;j<words.length;j++) {
-                        if (words[j].equals(tmp[0])) {
-                            i++;
-                            objects.add(words[j+1]);
-                        }
-                        if(words[j].contains(".")) {
-                            String[] tab = words[j].split("\\.");
-                            word=tab[0];
-                        }
-                        if (!objects.isEmpty() && objects.contains(word))
-                        {
-                            i++;
-                        }
-                    }
+                if (line.contains(tmp[0]){
+                    i++;
                 }
+                    }
                 list1.add(name);
                 list2.add(file.getName());
                 list3.add(i);
