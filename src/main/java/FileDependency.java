@@ -2,11 +2,11 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Dependency {
+public class FileDependency {
     private File file;
     private Map<File, Integer> otherFiles;
 
-    public Dependency(File file) {
+    public FileDependency(File file) {
         this.file = file;
         otherFiles = new HashMap<>();
     }

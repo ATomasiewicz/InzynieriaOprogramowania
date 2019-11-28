@@ -1,9 +1,9 @@
 import org.jgrapht.graph.DefaultWeightedEdge;
 
-public class WEdge extends DefaultWeightedEdge {
-        int weight;
+public class MyWeightedEdge extends DefaultWeightedEdge {
+    private int weight;
 
-    public WEdge(int weight) {
+    public MyWeightedEdge(int weight) {
         this.weight = weight;
     }
 
