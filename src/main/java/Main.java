@@ -5,9 +5,9 @@ public class Main {
         Project project = new Project();
         project.loadFiles();
         try {
-            //project.findDependencies();
             project.findFileDependency();
             project.findMethodDependency(project.findMethods());
+            //project.findDependencies();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -21,6 +21,5 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }

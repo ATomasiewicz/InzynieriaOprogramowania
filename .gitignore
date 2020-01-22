@@ -1,5 +1,5 @@
 # Default ignored files
-/workspace.xml
+/.idea/workspace.xml
 
 # Covers JetBrains IDEs: IntelliJ, RubyMine, PhpStorm, AppCode, PyCharm, CLion, Android Studio and WebStorm
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
@@ -22,6 +22,13 @@
 .idea/**/dynamic.xml
 .idea/**/uiDesigner.xml
 .idea/**/dbnavigator.xml
+
+/.idea
+graf_metod.png
+graf_metod_w_plikach.png
+graf_plikow.png
+src.zip
+/target/
 
 # Gradle
 .idea/**/gradle.xml
@@ -48,6 +55,7 @@ cmake-build-*/
 
 # IntelliJ
 out/
+
 
 # mpeltonen/sbt-idea plugin
 .idea_modules/
