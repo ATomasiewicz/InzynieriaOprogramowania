@@ -19,5 +19,4 @@ public class GraphVisualiser {
         File imageFile = new File(fileName);
         ImageIO.write(image, "PNG", imageFile);
     }
-
 }
