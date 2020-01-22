@@ -28,6 +28,15 @@ public class ProjectTest {
     public void methodDependenciesAmountShouldMatch() {
         assertEquals(20,project.getMethodDependencies().size());
     }
+     @Test
+    public void testFiles() throws IOException {
+        XmlConverter xmlConverter = new XmlConverter(project);
+        File myObj = new File("graf_plikow.xml");
+        File myObj1 = new File("graf_metod.xml");
+        File myObj2 = new File(("graf_metod_w_plikach"));
+        assertTrue((myObj.exists() && myObj1.exists()) && myObj2.exists());
+    }
+
 
 
 
