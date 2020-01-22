@@ -18,8 +18,8 @@ public class XmlConverter {
         List<IdClass> list=new LinkedList<>();
         List<IdClass> list2 = new LinkedList<>();
 
-        PrintWriter printWriter = new PrintWriter("test.xml");
-        PrintWriter printWriter1 = new PrintWriter("testy.xml");
+        PrintWriter printWriter = new PrintWriter("graf_plikow.xml");
+        PrintWriter printWriter1 = new PrintWriter("graf_metod.xml");
 
         printWriter.print("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
         printWriter.print("<Project Author=\"HP\" CommentTableSortAscending=\"false\" CommentTableSortColumn=\"Date Time\" DocumentationType=\"html\" ExportedFromDifferentName=\"false\" ExporterVersion=\"12.2\" Name=\"untitled\" TextualAnalysisHighlightOptionCaseSensitive=\"false\" UmlVersion=\"2.x\" Xml_structure=\"simple\">\n");
@@ -29,7 +29,7 @@ public class XmlConverter {
         printWriter1.print("<Project Author=\"HP\" CommentTableSortAscending=\"false\" CommentTableSortColumn=\"Date Time\" DocumentationType=\"html\" ExportedFromDifferentName=\"false\" ExporterVersion=\"12.2\" Name=\"untitled\" TextualAnalysisHighlightOptionCaseSensitive=\"false\" UmlVersion=\"2.x\" Xml_structure=\"simple\">\n");
         printWriter1.print("\t<Models>   \n");
 
-        PrintWriter printWriter2 = new PrintWriter("testowanie.xml");
+        PrintWriter printWriter2 = new PrintWriter("graf_metod_w_plikach.xml");
 
         printWriter2.print("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
         printWriter2.print("<Project Author=\"HP\" CommentTableSortAscending=\"false\" CommentTableSortColumn=\"Date Time\" DocumentationType=\"html\" ExportedFromDifferentName=\"false\" ExporterVersion=\"12.2\" Name=\"untitled\" TextualAnalysisHighlightOptionCaseSensitive=\"false\" UmlVersion=\"2.x\" Xml_structure=\"simple\">\n");
