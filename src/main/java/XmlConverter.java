@@ -276,7 +276,7 @@ public class XmlConverter {
             {
                 if(list.get(j).getProject().equals(his.fileName))
                 {
-                    fID=list2.get(j).getId();
+                    fID=list.get(j).getId();
                 }
             }
             printWriter2.print("            <Dependency BacklogActivityId=\"0\" Documentation_plain=\"\" From=\""+mID+"\" Id=\""+his.code+"\" PmAuthor=\"HP\" PmCreateDateTime=\"2019-12-17T17:35:28.925\" PmLastModified=\"2019-12-17T17:35:46.484\" QualityReason_IsNull=\"true\" QualityScore=\"-1\" To=\""+fID+"\" UserIDLastNumericValue=\"0\" UserID_IsNull=\"true\" Visibility=\"Unspecified\">\n");
@@ -370,7 +370,7 @@ public class XmlConverter {
             {
                 if(list.get(j).getProject().equals(his.fileName))
                 {
-                    fdiagID=list2.get(j).getDiagID();
+                    fdiagID=list.get(j).getDiagID();
                 }
             }
             printWriter2.print("\t\t\t\t<Dependency Background=\"rgb(122, 207, 245)\" ConnectorLabelOrientation=\"4\" ConnectorLineJumps=\"4\" ConnectorStyle=\"Follow Diagram\" CreatorDiagramType=\"ClassDiagram\" Foreground=\"rgb(0, 0, 0)\" From=\""+mdiagID+"\" FromConnectType=\"0\" FromPinType=\"1\" FromShapeXDiff=\"0\" FromShapeYDiff=\"0\" Height=\"410\" Id=\""+ PasswordGenerator.generatePassword(12)+"\" MetaModelElement=\""+his.code+"\" Model=\""+his.code+"\" ModelElementNameAlignment=\"9\" PaintThroughLabel=\"2\" RequestRebuild=\"false\" RequestRebuildFromEnd=\"false\" RequestRebuildToEnd=\"false\" RequestResetCaption=\"false\" RequestResetCaptionFitWidth=\"false\" RequestResetCaptionSize=\"false\" Selectable=\"true\" ShowConnectorName=\"2\" To=\""+fdiagID+"\" ToConnectType=\"0\" ToPinType=\"1\" ToShapeXDiff=\"0\" ToShapeYDiff=\"0\" UseFromShapeCenter=\"true\" UseToShapeCenter=\"true\" Width=\"250\" X=\"532\" Y=\"300\" ZOrder=\"12\">\n");
