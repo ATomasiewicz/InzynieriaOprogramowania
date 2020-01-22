@@ -20,8 +20,7 @@ public class FileMethodsGraph extends Graph {
         while(iterator.hasNext()){
             MethodDependency dependency = (MethodDependency) iterator.next();
             graph.addVertex(dependency.getMethodName());
-            graph.addEdge(dependency.getFileName(), dependency.getMethodName(), new MyWeightedEdge());
+            graph.addEdge(dependency.getFileName(), dependency.getMethodName(), new MyWeightedEdge(0));
         }
-
     }
 }
