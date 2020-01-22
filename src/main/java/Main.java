@@ -14,6 +14,7 @@ public class Main {
         Graph methodGraph = new MethodGraph(project);
         Graph fileGraph = new FileGraph(project);
         Graph fileMethodsGraph = new FileMethodsGraph(project);
+        StoryFive fileMethodPacketRelation = new StoryFive(project);
         try {
             GraphVisualiser.drawGraphToFile(methodGraph, "graf_metod.png");
             GraphVisualiser.drawGraphToFile(fileGraph, "graf_plikow.png");
