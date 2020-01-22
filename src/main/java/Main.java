@@ -1,13 +1,12 @@
 import java.io.IOException;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         Project project = new Project();
         project.loadFiles();
         try {
             project.findFileDependency();
             project.findMethodDependency(project.findMethods());
-            //project.findDependencies();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -19,6 +18,7 @@ public class Main {
             GraphVisualiser.drawGraphToFile(methodGraph, "graf_metod.png");
             GraphVisualiser.drawGraphToFile(fileGraph, "graf_plikow.png");
             GraphVisualiser.drawGraphToFile(fileMethodsGraph, "graf_metod_w_plikach.png");
+            GraphVisualiser.drawGraphToFile(fileMethodPacketRelation, "graf relacji plik metoda pakiet.jpg");
         } catch (IOException e) {
             e.printStackTrace();
         }
