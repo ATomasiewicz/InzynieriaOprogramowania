@@ -2,7 +2,7 @@ import java.io.File;
 import java.util.Iterator;
 import java.util.Map;
 
-public class FileGraph extends Graph{
+public class FileGraph extends Graph {
     public FileGraph(Project project){
         super();
         makeGraph(project);

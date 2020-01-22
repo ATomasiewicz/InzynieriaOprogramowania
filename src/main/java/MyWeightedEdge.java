@@ -7,6 +7,7 @@ public class MyWeightedEdge extends DefaultWeightedEdge {
         this.weight = weight;
     }
 
+
     @Override
     public String toString() {
         return Integer.toString(weight);
