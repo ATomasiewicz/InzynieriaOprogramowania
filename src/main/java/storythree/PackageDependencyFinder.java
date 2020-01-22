@@ -1,0 +1,46 @@
+package storythree;
+
+
+import storyone.fileoperations.FileReader;
+
+import java.io.File;
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+
+public class PackageDependencyFinder {
+
+
+    public List<DependencyObject> packageDependencyFinder(List<DependencyObject> listOfDependencyObjects) throws IOException {
+        PackageReader pr = new PackageReader();
+        storyone.fileoperations.FileReader fr = new FileReader();
+        MethodBodyFinder mbf = new MethodBodyFinder();
+
+        Integer dependencyCounter = 0;
+
+        FilesForStoryThree files = new FilesForStoryThree();
+        List<File> listOfFiles = files.getList();
+
+        Map<String,String> mapOfMethodBodies;
+
+        for(DependencyObject obj : listOfDependencyObjects){
+
+            for(File file : listOfFiles) {
+                mapOfMethodBodies = mbf.getMethodsBodies(file.toString());
+                for (Map.Entry<String, String> entry : mapOfMethodBodies.entrySet()){
+
+                    if (entry.getValue().contains("." + obj.getMethodName() + "(")) {
+                        dependencyCounter++;
+                        obj.setWeight(obj.getWeight()+1);
+                        DependencyObject tmp = new DependencyObject(obj.getPackageName(),entry.getKey());
+                        tmp.setWeight(tmp.getWeight()+1);
+                        obj.getList().put(tmp,dependencyCounter);
+
+                    }
+                }
+            }
+            dependencyCounter=0;
+        }
+        return listOfDependencyObjects;
+    }
+}
