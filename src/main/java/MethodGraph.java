@@ -1,7 +1,7 @@
 import java.util.Iterator;
 import java.util.Map;
 
-public class MethodGraph extends  Graph{
+public class MethodGraph extends Graph {
 
     public MethodGraph(Project project){
         super();
