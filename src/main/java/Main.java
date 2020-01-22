@@ -22,5 +22,10 @@ public class Main {
         } catch (IOException e) {
             e.printStackTrace();
         }
+          try {
+            XmlConverter xmlConverter = new XmlConverter(project);
+        } catch (IOException e){ 
+            e.printStackTrace();
+        }
     }
 }
